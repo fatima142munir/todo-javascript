@@ -1,0 +1,78 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background: linear-gradient(
+        135deg,
+        #3408f8,
+        #11f1d4,
+        rgb(228, 99, 99)
+    );   
+    height: 100vh;
+    width: 100vw;
+}
+.container{
+    text-align: center;
+    color: white;
+    height: 600px;
+    width: 300px;
+    margin: auto;
+}
+#new-task{
+    /* border: 2px solid white; */
+    padding: 30px 10px;
+    /* margin: 30px auto; */
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 15px 30px #1f0496;
+    margin: 30px auto;
+}
+#new-task input{
+    font-size: 15px;
+    height: 30px;
+    padding: 12px;
+    border: 2px solid #1f0496;
+    border-radius: 5px;
+}
+#new-task button{
+    cursor: pointer;
+    height: 30px;
+    padding: 0px 10px;
+    border-radius: 5px;
+    background-color: #3408f8;
+    color: white;
+    box-shadow: 0 5px 20px #1f0496;
+    border: none;
+}
+/* #tasks{
+    height: auto;
+    
+    
+} */
+
+#tasks li{
+    list-style-position: inside;
+    justify-content: center;
+    list-style: none;
+    height: auto;
+    color: black;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    margin: 10px 0px;
+    padding: 10px;
+    position: relative;
+    font-size: 20px;
+    text-align: left;
+    
+}
+#tasks li svg{
+    position: absolute;
+    right: 5px;
+}
+#tasks li i{
+    position: absolute;
+    left: 5px;
+}
