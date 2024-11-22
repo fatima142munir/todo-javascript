@@ -53,7 +53,6 @@ body{
 } */
 
 #tasks li{
-    text-decoration: none;
     box-shadow: 0 15px 30px #1f0496;
     list-style-position: inside;
     justify-content: center;

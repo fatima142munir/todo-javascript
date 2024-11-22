@@ -13,7 +13,9 @@ function add() {
         alert("..........Please enter a task..........");
     } else {
         todo.push({
-            text: input.value.trim()
+            text: input.value.trim(),
+            completed: false
+           
         });
         saveToLocalStorage();
         // Re-render the task list
@@ -51,14 +53,20 @@ function renderTasks() {
             // Re render updated list
             renderTasks(); 
         });
-
         // line-through for completed tasks
+        if (item.completed) {
+            newElement.style.textDecoration = "line-through";
+        }
         newElement.addEventListener("click", () => {
-            if (newElement.style.textDecoration === "line-through") {
-                newElement.style.textDecoration = "none";
-            } else {
-                newElement.style.textDecoration = "line-through";
-            }
+            // if (newElement.style.textDecoration === "line-through") {
+            //     newElement.style.textDecoration = "none";
+            // } else {
+            //     newElement.style.textDecoration = "line-through";
+            // }
+            item.completed = !item.completed;
+            saveToLocalStorage();
+            // Re render updated list
+            renderTasks(); 
         });
     });
 }
