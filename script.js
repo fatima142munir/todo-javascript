@@ -1,4 +1,4 @@
-
+// create a variable todo and get data from local storage if data does not exist then consider it empty array 
 let todo = JSON.parse(localStorage.getItem("todo")) || [];
 
 // store DOM elements in variables
@@ -7,9 +7,26 @@ const btn = document.getElementById('addTask');
 const tasks = document.getElementById('tasks');
 const delAllBtn = document.getElementById('delAllBtn');
 
+// Add a new task
+function add() {
+    if (input.value.trim().length === 0) {
+        alert("..........Please enter a task..........");
+    } else {
+        todo.push({
+            text: input.value.trim()
+        });
+        saveToLocalStorage();
+        // Re-render the task list
+        renderTasks(); 
+        // Clear input
+        input.value = ""; 
+    }
+}
+
 // Render tasks from localStorage
 function renderTasks() {
-    tasks.innerHTML = ""; // Clear the task list to avoid duplicates
+    // Clear the task list to avoid duplicates
+    tasks.innerHTML = ""; 
     todo.forEach((item, index) => {
         let newElement = document.createElement("li");
         newElement.innerHTML = `
@@ -46,25 +63,10 @@ function renderTasks() {
     });
 }
 
-// Add a new task
-function add() {
-    if (input.value.trim().length === 0) {
-        alert("..........Please enter a task..........");
-    } else {
-        todo.push({
-            text: input.value.trim(),
-            disabled: false,
-        });
-        saveToLocalStorage();
-        // Re-render the task list
-        renderTasks(); 
-        // Clear input
-        input.value = ""; 
-    }
-}
 
-// Save the tasks to localStorage
+// Save the tasks to localStorage 
 function saveToLocalStorage() {
+    // use json.strigify to convert object in string
     localStorage.setItem("todo", JSON.stringify(todo));
 }
 
@@ -87,3 +89,5 @@ input.addEventListener("keypress", (e) => {
 // Render tasks on page load
 renderTasks();
 console.log(todo);
+
+
