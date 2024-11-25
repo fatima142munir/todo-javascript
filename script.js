@@ -58,11 +58,6 @@ function renderTasks() {
             newElement.style.textDecoration = "line-through";
         }
         newElement.addEventListener("click", () => {
-            // if (newElement.style.textDecoration === "line-through") {
-            //     newElement.style.textDecoration = "none";
-            // } else {
-            //     newElement.style.textDecoration = "line-through";
-            // }
             item.completed = !item.completed;
             saveToLocalStorage();
             // Re render updated list
